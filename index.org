@@ -1,0 +1,59 @@
+#+SETUPFILE: ./static/org-templates/level-0.org
+#+title: El Baul del Programador
+#+date: <2020-09-25 Fri>
+#+options: toc:nil
+
+Welcome to my blog! I am a mix between Computer Scientist & Data Scientist. Keen on Functional Programming & Machine Learning. Right now I am working as Data Engineer [[https://www.moia.io/en][@MOIA]]
+
+I migrated this blog from hugo to org-mode, you can find the old [[./index.old.html][index page here]], the latests posts written using =org-mode= are this ones:
+
+#+INCLUDE: latests.org
+
+The full =org-mode= archive can be found at [[file:archive.org][/archive]]
+
+* Personal projects
+  :PROPERTIES:
+  :ID:       3CEF7A75-D677-4C7A-A5EC-2D062E0F671A
+  :PUBDATE:  <2020-09-26 Sat 13:46>
+  :END:
+** [[https://github.com/elbaulp/DPASF][DPASF (Data Pre-processing Algorithms for Streaming in Flink)]]
+   :PROPERTIES:
+   :ID:       3A4D6D46-3B93-4639-B555-C62FFFC45D07
+   :END:
+   This is my MSc on Data Science final project. This is a library for Data Pre-processing Algorithms for Streaming in Flink (DPASF). It has an associated publication (currently a pre-print on [[https://arxiv.org/abs/1810.06021][ArXiv]]).
+
+** [[https://github.com/elbaulp/Scala-Category-Theory][Scala-Category-Theory]]
+   :PROPERTIES:
+   :ID:       EBE8E0C8-506C-4548-8EB8-D859C829FAB3
+   :END:
+   Bartosz Milewski great book on Category Theory implemented in scala, with property Tests
+
+** [[https://github.com/elbaulp/grado_informatica_criptografia][Cryptography Exercises]]
+   :PROPERTIES:
+   :ID:       D6F01105-7C72-4B13-9312-DB2D656419ED
+   :END:
+   A repo hosting all the assigment and source code of the Cryptography course on the University of Granada.
+
+** [[https://github.com/elbaulp/hugo_similar_posts][Hugo Similar Posts]]
+   :PROPERTIES:
+   :ID:       F755DFFD-E6C1-456A-B8E8-919228E2AAD9
+   :END:
+   Computing similar posts for my blog using Sklearn Kmeans, you can read more about this project in the blog post: [[https://elbauldelprogramador.com/en/related-posts-hugo-sklearn/][Show related posts in Hugo with Sklearn]].
+
+** [[https://github.com/elbaulp/NLP_Dependency_Parsing][NLP Dependency Parsing for Spanish]]
+   :PROPERTIES:
+   :ID:       7672B195-A532-4015-8C8D-35CBB9F6BBF2
+   :END:
+   Final project of my Computer Science degree. This software is an implementation of a Dependency parser for Spanish, using SVMs.
+
+** [[https://github.com/elbaulp/myDWM][My Personal DWM fork]]
+   :PROPERTIES:
+   :ID:       98E6EC9D-C200-4904-BA2E-E01321294E45
+   :END:
+   Personal Fork of DWM, It has two branches, master that is as the original dwm and has a simple status color patch, and myconfig, that as its name point, is my personal config of DWM.
+
+** [[https://github.com/elbaulp/genPlaylistByName][Generate Playlist By Length]]
+   :PROPERTIES:
+   :ID:       CAC12D3D-127E-4D1D-A3F7-778E6ED017BB
+   :END:
+   A little python script for generate playlist with a given length in minutes. You can read more about this in the post [[https://elbauldelprogramador.com/en/generar-listas-de-reproduccion-determinada-duracion-python/][/Create music playlists with a given length/]]
