@@ -2,6 +2,7 @@
 
 PUBLIC_DIR="${GITHUB_WORKSPACE}/public"
 
+#???
 function print_info() {
     echo -e "\e[36mINFO: ${1}\e[m"
 }
