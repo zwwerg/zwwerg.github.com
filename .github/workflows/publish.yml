@@ -1,12 +1,12 @@
 on:
   push:
     branches:
-    - master
+    - main
 
 jobs:
   build_blog_job:
     runs-on: ubuntu-latest
-    name: Copy contents of hugo, builds org-project
+    name: Builds org-project
     steps:
     - name: Checkout
       uses: actions/checkout@v2

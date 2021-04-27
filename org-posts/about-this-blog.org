@@ -70,4 +70,12 @@ https://docs.docker.com/engine/install/linux-postinstall/
 sudo usermod -aG docker $USER
 #+end_src
 
+** Setup with github
 
+https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action
+
+https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
+
+#+begin_src yaml
+github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+#+end_src
