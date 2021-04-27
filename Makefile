@@ -1,4 +1,4 @@
-IMAGE_NAME := elbaulp.github.io
+IMAGE_NAME := zwwerg.github.io
 BUILD_VERSION := 1.0
 
 .PHONY: docker-build
