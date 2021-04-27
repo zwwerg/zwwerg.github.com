@@ -47,7 +47,7 @@
   (-filter (lambda (x) (car x)) entries))
 
 
-(defun elbaulp/sitemap-function (title sitemap)
+(defun zwwerg/sitemap-function (title sitemap)
   "Generate the full list of posts"
   (let* ((header "#+setupfile: ./static/org-templates/level-0.org\n#+title:%s\n#+options: toc:nil\n* %s\n")
          (title "Blog Sitemap") (subtitle "All list of all blog posts")
