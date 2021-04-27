@@ -1,0 +1,73 @@
+#+setupfile: ../static/org-templates/level-1.org
+#+title: A thought about this blog
+#+date: <2021-04-27 Tue>
+#+category: misc org github
+#+DESCRIPTION: The birth of my blog and the setup steps needed
+
+I decided to start a blog to collect my personal projects and to build my knowledge base on engineering and technology. 
+
+Finding the right blogging engine took actually a significant time. The main criteria was longevity, I would avoid 
+migrating from one technology to another. As I am an emacs fan, and use org mode for note-taking, a blog generated 
+from org sources was a strong preference. Another criteria was to use a lightweight engine, image and latex inclusion, 
+and aesthetic looking generated site with index and labeling. 
+
+Feel free to drop a comment below, or say something in email mailto:zwwerg@gmail.com or [[https://t.me/zwwerg][telegram]]).
+
+* Org native publishing on github
+
+Based on:
+https://elbauldelprogramador.com/org-posts/migrating-from-hugo-to-org-mode.html
+https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html
+
+Source:
+https://github.com/elbaulp/elbaulp.github.io
+
+LZS's published site:
+https://github.com/zwwerg/zwwerg.github.io
+
+Google site verification information:
+https://support.google.com/webmasters/answer/9008080?hl=en#zippy=%2Chtml-file-upload
+
+** Another great org-blog example "casouri":
+https://archive.casouri.cat/index.html
+
+CSS and RSS tricks:
+https://archive.casouri.cat/note/2018/blog-in-org-mode-revisited/index.html
+
+Source:
+https://github.com/casouri/casouri.github.io
+
+** Prerequisites and local installation
+*** Docker
+https://docs.docker.com/engine/install/debian/
+
+#+begin_src shell
+sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+sudo docker run hello-world
+#+end_src
+
+Extra steps:
+https://docs.docker.com/engine/install/linux-postinstall/
+
+#+begin_src shell
+sudo usermod -aG docker $USER
+#+end_src
+
+
