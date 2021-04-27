@@ -3,11 +3,11 @@
 #+options: date:t e:t email:nil f:t
 #+options: pri:nil prop:nil stat:nil tasks:t tex:t
 #+options: timestamp:t title:t toc:t todo:t |:t
-#+author: Alejandro Alcalde
-#+email: algui91@gmail.com
+#+author: Zsombor Lázár
+#+email: zwwerg@gmail.com
 #+language: en
-#+creator: Emacs 26.3 (Org mode 9.3.6)
-#+HTML_HEAD_EXTRA: <link href="/index.xml" rel="feed" type="application/rss+xml" title="El Baúl del programador">
+#+creator: Emacs 27.2 (Org mode 9.4.5)
+#+HTML_HEAD_EXTRA: <link href="/index.xml" rel="feed" type="application/rss+xml" title="LZS's personal technology blog">
 #+HTML_LINK_HOME: index.html
 #+HTML_LINK_UP: index.html
 #+INFOJS_OPT: view:showall
