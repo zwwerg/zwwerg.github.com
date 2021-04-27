@@ -50,12 +50,12 @@
          :exclude "latests.org"
          :publishing-directory "public"
          :publishing-function ignore
-         :html-link-home "https://elbauldelprogramador.com/"
+         :html-link-home "https://zwwerg.github.io"
          :html-link-use-abs-url t
          :auto-sitemap t
          :sitemap-filename "archive.org"
          :sitemap-sort-files anti-chronologically
-         :sitemap-function elbaulp/sitemap-function
+         :sitemap-function zwwerg/sitemap-function
         )
 
         ("org-static"
@@ -86,10 +86,10 @@
         ;;  :base-extension "org"
         ;;  :include '("rss.org")
         ;;  :exclude (regexp-opt '("latests.org" "archive.org" "rss.org"))
-        ;;  :rss-image-url "https://elbauldelprogramador.com/img/bio-photo-rss.png"
+        ;;  :rss-image-url "https://zwwerg.github.io/img/bio-photo-rss.png"
         ;;  :publishing-directory "public/"
         ;;  :publishing-function org-rss-publish-to-rss
-        ;;  :html-link-home "https://elbauldelprogramador.com"
+        ;;  :html-link-home "https://zwwerg.github.io"
         ;;  :html-link-use-abs-url t)
 
         ("org" :components ("org-archive" "org-notes" "org-static"))
