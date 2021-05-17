@@ -1,6 +1,6 @@
 #+setupfile: ../static/org-templates/level-1.org
 #+title: A thought about this blog
-#+date: <2021-04-27 Tue>
+#+date: <2021-04-28 Wed 16:54>
 #+category: misc org github
 #+DESCRIPTION: The birth of my blog and the setup steps needed
 
@@ -72,10 +72,60 @@ sudo usermod -aG docker $USER
 
 ** Setup with github
 
-https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action
+*** Settings
 
-https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
+[[https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token][Github: creating-a-personal-access-token]]
+
+#+DOWNLOADED: file:///home/lzs/Pictures/access_token.png @ 2021-04-28 16:51:55
+[[file:assets/Org_native_publishing_on_github/2021-04-28_16-51-55_access_token.png]]
 
 #+begin_src yaml
 github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
 #+end_src
+
+**** Pages
+
+#+DOWNLOADED: file:///home/lzs/Pictures/pages.png @ 2021-04-29 15:32:52
+[[file:assets/Org_native_publishing_on_github/2021-04-29_15-32-52_pages.png]]
+
+
+*** Workflow actions
+
+#+DOWNLOADED: file:///home/lzs/Pictures/workflows.png @ 2021-04-29 15:31:39
+[[file:assets/Org_native_publishing_on_github/2021-04-29_15-31-39_workflows.png]]
+
+[[https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action][Github: creating-a-docker-container-action]]
+
+** CSS and styling
+
+https://github.com/thomasf/solarized-css/blob/master/build.sh
+
+https://akirakyle.com/blog/2019-02-10-functional-css.html
+
+script to get all css classes:
+https://akirakyle.com/blog/2019-02-08-ox-html-css.html
+
+https://gongzhitaao.org/orgcss/
+
+Example CSS, especially for the fonts:
+https://github.com/casouri/casouri.github.io/blob/master/default-style.css
+
+font-family: Charter, Source Han Serif CN, serif;
+font-family: Source Han Serif CN;
+font-family: Source Han Serif JP;
+
+font-family: ui-mono, monospace;
+
+font-family: Helvetica;
+
+font-family: Helvetica, "Source Han Sans SC";
+
+font-family: Helvetica Neue;
+
+** Tests
+*** TODO Latex
+*** TODO Footnote
+*** TODO Index
+
+** TODO Acknowledgments
+...
