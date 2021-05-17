@@ -21,7 +21,10 @@
 "
                                    )))
 
-(setq css-styles (concat "<style>" (get-string-from-file "./css/org.css")  (get-string-from-file "./css/social.css") "</style>"))
+(setq css-styles (concat "<style>"
+                         (get-string-from-file "./css/org.css")
+                         (get-string-from-file "./css/social.css")
+                         "</style>"))
 (setq org-html-head-include-default-style nil)
 (setq org-html-head css-styles)
 (setq org-html-htmlize-output-type 'css)
