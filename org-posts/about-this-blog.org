@@ -4,16 +4,17 @@
 #+category: misc org github
 #+DESCRIPTION: The birth of my blog and the setup steps needed
 
-I decided to start a blog to collect my personal projects and to build my knowledge base on engineering and technology. 
+I decided to start a blog to collect my personal projects and to build my knowledge base on engineering and technology.
 
-Finding the right blogging engine took actually a significant time. The main criteria was longevity, I would avoid 
-migrating from one technology to another. As I am an emacs fan, and use org mode for note-taking, a blog generated 
-from org sources was a strong preference. Another criteria was to use a lightweight engine, image and latex inclusion, 
-and aesthetic looking generated site with index and labeling. 
+Finding the right blogging engine took actually a significant time. The main criteria was longevity, I would avoid
+migrating from one technology to another. As I am an emacs fan, and use org mode for note-taking, a blog generated
+from org sources was a strong preference. Another criteria was to use a lightweight engine, image and latex inclusion,
+and aesthetic looking generated site with index and labeling.
 
 Feel free to drop a comment below, or say something in email mailto:zwwerg@gmail.com or [[https://t.me/zwwerg][telegram]]).
 
-* Org native publishing on github
+* Org native publishing on github                                :github:actions:
+#+INDEX: Github!Actions
 
 Based on:
 https://elbauldelprogramador.com/org-posts/migrating-from-hugo-to-org-mode.html
@@ -76,7 +77,8 @@ sudo usermod -aG docker $USER
 
 [[https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token][Github: creating-a-personal-access-token]]
 
-#+DOWNLOADED: file:///home/lzs/Pictures/access_token.png @ 2021-04-28 16:51:55
+#+DOWNLOADED: file:///home/lzs/Pictures/access_token.png @ 2021-04-28 16:51:55w
+#+CAPTION: Personal access tokes in github
 [[file:assets/Org_native_publishing_on_github/2021-04-28_16-51-55_access_token.png]]
 
 #+begin_src yaml
@@ -102,7 +104,7 @@ https://github.com/thomasf/solarized-css/blob/master/build.sh
 
 https://akirakyle.com/blog/2019-02-10-functional-css.html
 
-script to get all css classes:
+Script to get all css classes:
 https://akirakyle.com/blog/2019-02-08-ox-html-css.html
 
 https://gongzhitaao.org/orgcss/
@@ -110,6 +112,8 @@ https://gongzhitaao.org/orgcss/
 Example CSS, especially for the fonts:
 https://github.com/casouri/casouri.github.io/blob/master/default-style.css
 
+Intersting fonts:
+#+begin_src
 font-family: Charter, Source Han Serif CN, serif;
 font-family: Source Han Serif CN;
 font-family: Source Han Serif JP;
@@ -121,11 +125,70 @@ font-family: Helvetica;
 font-family: Helvetica, "Source Han Sans SC";
 
 font-family: Helvetica Neue;
+#end_src
+
+*** Other fonts:
+
+https://peterlyons.com/screen.css
+
+font-family:"Julius Sans One",sans-serif;margin:1em 0
+body{font-family:georgia, serif;font-size:12px
+code,pre{font-family:Inconsolata, monospace;line-height:1.1em}
+
+https://fonts.google.com/
+
+Newsreader
+Cardo
+Roboto sans
 
 ** Tests
-*** TODO Latex
-*** TODO Footnote
-*** TODO Index
+*** DONE Latex
+CLOSED: [2021-05-21 Fri 15:33]
+
+Embedded latex with MathJax:
+
+\begin{equation}                        % arbitrary environments,
+x=\sqrt{b}                              % even tables, figures, etc
+\end{equation}
+
+Trigonometry:
+
+\begin{equation}
+\cos (2\theta) = \cos^2 \theta - \sin^2 \theta
+\end{equation}
+
+*** DONE Footnote
+CLOSED: [2021-05-21 Fri 15:21]
+
+The Org homepage[fn:1] now looks a lot better than it used to.
+
+
+*** DONE Index                                                   :test:index:
+CLOSED: [2021-05-17 Mon 16:00]
+#+INDEX: Test!Index
+Index test, automatic index generation. Use the following org feature:
+
+#+begin_src org
+
+#+INDEX: Test!Index
+
+#+end_src
+
+*** DONE Tags                                                     :test:tags:
+CLOSED: [2021-05-21 Fri 15:18]
+#+INDEX: Test!Tags
+
+Index feature to be used as tagging.
+
+*** TODO Comment feature
+
+powered by utteranc.es
+
 
 ** TODO Acknowledgments
-...
+
+
+[[https://web.dev/learn/css/][CSS course by Google]]
+
+
+[fn:1] The link is: https://orgmode.org/manual/Creating-Footnotes.html
