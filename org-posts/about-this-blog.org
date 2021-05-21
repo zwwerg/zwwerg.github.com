@@ -180,15 +180,19 @@ CLOSED: [2021-05-21 Fri 15:18]
 
 Index feature to be used as tagging.
 
-*** TODO Comment feature
+*** DONE Comment feature
+CLOSED: [2021-05-21 Fri 15:38]
 
 powered by utteranc.es
 
+See in =org-variables.lisp=.
 
-** TODO Acknowledgments
 
+** DONE Acknowledgments
+CLOSED: [2021-05-21 Fri 15:39]
 
 [[https://web.dev/learn/css/][CSS course by Google]]
 
+[[https://elbauldelprogramador.com/org-posts/migrating-from-hugo-to-org-mode.html][elbauldelprogramador.com]]
 
 [fn:1] The link is: https://orgmode.org/manual/Creating-Footnotes.html
