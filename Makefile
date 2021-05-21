@@ -11,3 +11,5 @@ docker-shell: docker-build
 	docker run -it --rm --entrypoint "/bin/ash" "${IMAGE_NAME}:${BUILD_VERSION}"
 deploy-local:
 	emacs --batch --no-init-file --load ./projects.lisp --funcall toggle-debug-on-error
+clean:
+	rm -rf public/
