@@ -23,7 +23,7 @@
         ("org-notes"
          :base-directory "."
          :base-extension "org"
-         :exclude "static/.*\\|latests.org"
+         :exclude "static/.*\\|latests.org\\|public/.*"
          :publishing-directory "public"
          :recursive t
          :publishing-function org-html-publish-to-html
@@ -47,7 +47,7 @@
          :base-directory "."
          :recursive t
          :base-extension "org"
-         :exclude "latests.org"
+         :exclude "latests.org\\|public/.*"
          :publishing-directory "public"
          :publishing-function ignore
          :html-link-home "https://zwwerg.github.io"
@@ -60,7 +60,7 @@
 
         ("org-static"
          :base-directory "."
-         :exclude "static/.*"
+         :exclude "static/.*\\|public/.*"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|yml"
          :publishing-directory "public"
          :recursive t
