@@ -105,7 +105,16 @@ sup {
 }
 
 img {
-	border-style: none
+    border: 1px solid #fbfcff;
+    box-shadow: 3px 3px 3px #eee;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 0em;
+    width: 90%;
+}
+
+.figure {
+    text-align: center;
 }
 
 svg:not(:root) {
@@ -2563,16 +2572,18 @@ a:hover {
 	border-bottom: 1px dotted
 }
 
+/*
 figure {
 	padding: 0;
 	margin: 1em auto;
 	text-align: center
-}
+}*/
 
+/*
 img {
 	max-width: 100%;
 	vertical-align: middle
-}
+}*/
 
 .MathJax_Display {
 	margin: 0!important;
