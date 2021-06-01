@@ -1,0 +1,51 @@
+#+setupfile: ../static/org-templates/level-1.org
+#+title: Swatch Pin and Buckle - 3D Print
+#+date: <2021-06-01 Fri>
+#+category: 3dprint swatch
+#+DESCRIPTION: 3d print project
+
+This post is about a small 3D print project.
+
+* Background
+#+INDEX: 3dprint!Swatch
+
+A friend asked me to help printing a replacment part (pin of the buckle) of a
+Swatch watch strap.
+
+* Design files
+
+I've considered the two freely available Thingiverse designs:
+
+[[https://www.thingiverse.com/thing:4458387][Dorn für die Flik Flak Uhr von Swatch]]
+
+[[https://www.thingiverse.com/thing:4170947][Flik Flak Buckle and Pin]]
+
+out of which I've used the pin from the first one.
+
+* Prints and results
+#+INDEX: 3dprint!PC
+
+I have printed 12 samples, using the [[https://shop.prusa3d.com/en/prusament/1258-prusament-pc-blend-natural-1kg.html][PC - strongest - filament]], from Prusa [1].
+
+#+DOWNLOADED: file:///home/lzs/dev/mate_3dprint/flik-flak/foto/IMG_0137.JPG @ 2021-06-01 16:36:45
+#+CAPTION White printed parts, with broken blue original and manually carved trial sample
+[[file:assets/Prints_and_results/2021-06-01_16-36-45_IMG_0137.JPG]]
+
+
+
+#+DOWNLOADED: file:///home/lzs/dev/mate_3dprint/flik-flak/foto/IMG_0134.JPG @ 2021-06-01 16:37:45
+#+CAPTION Printed part in action
+[[file:assets/Prints_and_results/2021-06-01_16-37-45_IMG_0134.JPG]]
+
+
+The results are satisfying, considering the costs [2] and the fact that Swatch does not
+provide neither pin nor buckle replacement, only full strap replacement.
+
+* Summary
+
+In case of need of a pin replacement, feel free to contact me on the above links.
+
+* References
+
+[1] [[https://www.youtube.com/watch?v=tXLroVcw1MQ][CNC Kitchen: The King of 3D printing materials? Polymaker PolyMax PC REVIEW]]
+[2] [[https://www.youtube.com/watch?v=ffg9dArNfCg][CNC Kitchen: HOW MUCH do 3D printed parts really COST?]]
