@@ -195,4 +195,6 @@ CLOSED: [2021-05-21 Fri 15:39]
 
 [[https://elbauldelprogramador.com/org-posts/migrating-from-hugo-to-org-mode.html][elbauldelprogramador.com]]
 
+[[https://neil.computer/notes/overkill-objects-for-everyday-life/][CSS style example - Neil]]
+
 [fn:1] The link is: https://orgmode.org/manual/Creating-Footnotes.html
