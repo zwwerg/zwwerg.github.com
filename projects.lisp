@@ -17,6 +17,9 @@
 (load "util-functions.lisp")
 (load "org-variables.lisp")
 
+;; https://emacs.stackexchange.com/questions/27691/org-mode-export-images-to-html-as-figures-not-img
+(setq org-html-html5-fancy t
+      org-html-doctype "html5")
 
 (setq org-publish-project-alist
       '(
