@@ -8,4 +8,4 @@ echo "Watching all *.org source and rebuild whenever any files changes"
 watchmedo3 shell-command \
            --patterns="*.org; *.css" \
            --ignore-directories \
-           --recursive --command='make deploy-local' org-posts css static
+           --recursive --command='make deploy-local' org-posts
