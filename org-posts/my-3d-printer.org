@@ -45,7 +45,7 @@ The list of upgrades:
 10. [[https://www.thingiverse.com/thing:3352591][Filament spool holder]]
 11. Tool holder - V-slot bear
 
-*** Notes:
+*** Notes
 
 The bear upgrade is not necessary, it does not contribute to print quality,
 as I find the original Prusa frame sturdy enough. Although I liked it, because

@@ -180,6 +180,9 @@ CLOSED: [2021-05-21 Fri 15:18]
 
 Index feature to be used as tagging.
 
+*** TODO Tables
+...
+
 *** DONE Comment feature
 CLOSED: [2021-05-21 Fri 15:38]
 
