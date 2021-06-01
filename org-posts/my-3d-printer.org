@@ -1,0 +1,53 @@
+#+setupfile: ../static/org-templates/level-1.org
+#+title: My 3D printer - Prusa i3 MK3S
+#+date: <2021-05-21 Fri>
+#+category: 3dprint prusa
+#+DESCRIPTION: 3d printer setup and information
+
+This post is about my 3D printer and detailed description about the customizations
+I have done.
+
+* Printer base
+#+INDEX: 3dprint!Prusa
+
+My base printer is an original Prusa i3 MK3S+, that I ordered in KIT.
+At the time of buying the version was MK3 only, but I kept up with the updates
+released by Prusa Research.
+
+
+#+DOWNLOADED: file:///home/lzs/Pictures/prusa_mk3s.png @ 2021-05-28 14:21:14
+#+CAPTION: Prusa MK3S+
+#+ATTR_HTML: :width 150px :height 150px
+[[file:assets/Printer_base/2021-05-28_14-21-14_prusa_mk3s.png]]
+
+[[https://shop.prusa3d.com/en/3d-printers/180-original-prusa-i3-mk3s-kit.html?gmc_currency=2&gclid=CjwKCAjwqcKFBhAhEiwAfEr7zTcbZefG0pRa0XyVTO6WTdFyKDpWTsCu6mS2trfaD0WVORmD-BCIehoCw8sQAvD_BwE][Original Prusa i3 MK3S+ kit]]
+
+* Customizations
+
+I have done many customizations to improve the printing experience, and for
+fun, too.
+
+
+#+DOWNLOADED: file:///home/lzs/personal/zwwerg.github.io/org-posts/my_prusa.png @ 2021-05-28 15:06:39
+#+CAPTION: My 3d printer and upgrades
+[[file:assets/Customizations/2021-05-28_15-06-39_my_prusa.png]]
+
+The list of upgrades:
+1. Prusa base printer
+2. [[https://www.aliexpress.com/item/32835324972.html][Camera GUCEE HD92 - USB]]
+3. [[https://www.youtube.com/watch?v=y08v6PY_7ak][Concrete base]]
+4. Smoke alarm - cheap battery operated from the local store
+5. [[https://github.com/gregsaun/prusa_i3_bear_upgrade][Bear upgrade]]
+6. [[https://www.thingiverse.com/thing:2477180][Adjustable camera arm - V-slot]]
+7. Enclosure and LED strip, switchable
+8. Supply with switch
+9. Raspberry pi
+10. Filament holder
+11. Tool holder - V-slot bear
+
+Notes:
+
+
+
+* Acknowledgments
+[1] [[https://www.youtube.com/channel/UCiczXOhGpvoQGhOL16EZiTg][CNC Kitchen Youtube channel]]
