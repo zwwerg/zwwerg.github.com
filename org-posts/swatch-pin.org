@@ -25,20 +25,20 @@ out of which I've used the pin from the first one.
 * Prints and results
 #+INDEX: 3dprint!PC
 
-I have printed 12 samples, using the [[https://shop.prusa3d.com/en/prusament/1258-prusament-pc-blend-natural-1kg.html][PC - strongest - filament]], from Prusa [1].
+I have printed 12 samples, using the [[https://shop.prusa3d.com/en/prusament/1258-prusament-pc-blend-natural-1kg.html][PC - strongest - filament]], from Prusa [fn:1].
 
 #+DOWNLOADED: file:///home/lzs/dev/mate_3dprint/flik-flak/foto/IMG_0137.JPG @ 2021-06-01 16:36:45
-#+CAPTION White printed parts, with broken blue original and manually carved trial sample
+#+CAPTION: White printed parts, with broken blue original and manually carved trial sample
 [[file:assets/Prints_and_results/2021-06-01_16-36-45_IMG_0137.JPG]]
 
 
 
 #+DOWNLOADED: file:///home/lzs/dev/mate_3dprint/flik-flak/foto/IMG_0134.JPG @ 2021-06-01 16:37:45
-#+CAPTION Printed part in action
+#+CAPTION: Printed part in action
 [[file:assets/Prints_and_results/2021-06-01_16-37-45_IMG_0134.JPG]]
 
 
-The results are satisfying, considering the costs [2] and the fact that Swatch does not
+The results are satisfying, considering the costs [fn:2] and the fact that Swatch does not
 provide neither pin nor buckle replacement, only full strap replacement.
 
 * Summary
@@ -47,5 +47,6 @@ In case of need of a pin replacement, feel free to contact me on the above links
 
 * References
 
-[1] [[https://www.youtube.com/watch?v=tXLroVcw1MQ][CNC Kitchen: The King of 3D printing materials? Polymaker PolyMax PC REVIEW]]
-[2] [[https://www.youtube.com/watch?v=ffg9dArNfCg][CNC Kitchen: HOW MUCH do 3D printed parts really COST?]]
+[fn:1] [[https://www.youtube.com/watch?v=tXLroVcw1MQ][CNC Kitchen: The King of 3D printing materials? Polymaker PolyMax PC REVIEW]]
+
+[fn:2] [[https://www.youtube.com/watch?v=ffg9dArNfCg][CNC Kitchen: HOW MUCH do 3D printed parts really COST?]]
