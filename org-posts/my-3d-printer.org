@@ -39,14 +39,33 @@ The list of upgrades:
 4. Smoke alarm - cheap battery operated from the local store
 5. [[https://github.com/gregsaun/prusa_i3_bear_upgrade][Bear upgrade]]
 6. [[https://www.thingiverse.com/thing:2477180][Adjustable camera arm - V-slot]]
-7. Enclosure and LED strip, switchable
-8. Supply with switch
-9. Raspberry pi
-10. Filament holder
+7. [[https://www.thingiverse.com/thing:2864118][Ikea Lack Enclosure]] with height extension and LED strip, switchable
+8. Supply with switch (external)
+9. [[https://www.raspberrypi.org/products/raspberry-pi-4-model-b/][Raspberry pi-4]], [[https://octoprint.org/][octopi]], [[https://www.thingiverse.com/thing:2869086][v-slot case]]
+10. [[https://www.thingiverse.com/thing:3352591][Filament spool holder]]
 11. Tool holder - V-slot bear
 
-Notes:
+*** Notes:
 
+The bear upgrade is not necessary, it does not contribute to print quality,
+as I find the original Prusa frame sturdy enough. Although I liked it, because
+it allows easier mount of utils and tools to the frame.
+
+The concrete base is a must have, as it is cheap, and makes the printer
+vibrate much less.
+
+The camera I don't recommend, any USB camera with raspberry compatibility
+would do.
+
+The enclosure is a good idea even if you don't print with ABS, as it keeps
+the printer relatively dust free. The LED strip is switchable, I keep it
+on only for problematic prints that I want to monitor through the camera and
+octopi. I've installed always-on-LEDs on the camera, too, these keep
+a minimum light so that one can tell whether the print has issues through
+octopi.
+
+The whole printer is elevated, adjusted to my height, so I don't need to lean
+forward, but access the printer in a stand-up posture.
 
 
 * Acknowledgments
