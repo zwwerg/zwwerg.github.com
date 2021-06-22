@@ -1,0 +1,31 @@
+#+setupfile: ../static/org-templates/level-1.org
+#+title: Air quality monitor
+#+date: <2021-06-22 Tue>
+#+category: embedded sensor BME680 ESP32
+#+DESCRIPTION: Small embedded project using ESP32 and BME680
+
+
+* Air quality monitor integrated to TrueNAS
+
+** Background
+
+Need of monitoring internal air quality
+
+
+
+** References
+
+[[https://randomnerdtutorials.com/esp32-mqtt-publish-bme680-arduino/][ESP32 MQTT – Publish BME680 Temperature, Humidity, Pressure, and Gas Readings (Arduino IDE)]]
+
+
+[[https://www.balena.io/blog/build-an-environment-and-air-quality-monitor-with-raspberry-pi/][Build an air quality monitor with InfluxDB, Grafana, and Docker on a Raspberry Pi]]
+
+[[https://hackaday.com/2019/03/28/an-air-quality-monitor-that-leverages-the-cloud/][Hackaday: AN AIR QUALITY MONITOR THAT LEVERAGES THE CLOUD]]
+
+*** Parts:
+
+[[https://www.bastelgarage.ch/esp32minikit-wemos][Bastelgarage: ESP32MiniKit Wemos]]
+
+[[https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/][Bosch BME680]]
+
+[[https://www.bastelgarage.ch/bme680-breakout-luftfeuchtigkeits-druck-temperatur-luftgutesensor?search=bme680][Bastelgarage: BME680 Breakout Luftfeuchtigkeits-, Druck-, Temperatur- & Luftgütesensor]]
