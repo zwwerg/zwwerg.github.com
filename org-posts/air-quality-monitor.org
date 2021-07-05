@@ -9,23 +9,148 @@
 
 ** Background
 
-Need of monitoring internal air quality
+Need of monitoring internal air quality, temperature and humidity. CO2
+measurement was an optional requirement, therefore
+
+** Hardware
+
+The sensor is the BME680, gas sensor measuring relative humidity, barometric pressure,
+ambient temperature and gas (VOC). [[A]]
+
+The microcontroller is an ESP32 [[D]] development board for simplicity.
+
+** Schematics
+
+Wire the BME680 to the ESP32 with the SDA pin connected to GPIO 21 and the SCL pin connected to GPIO 22.
+Connect GND and 3V3 supply lines too.
+
+
+** Software
+
+System interfacing based on MQTT [[G]].
+
+- The ESP32 requests sensor readings from the BME680 sensor.
+- The temperature readings are published in the esp/bme680/temperature topic;
+- Humidity readings are published in the esp/bme680/humiditytopic;
+- Pressure readings are published in the esp/bme680/pressure topic;
+- Gas readings are published in the esp/bme680/gas topic;
+- TrueNAS (Node-RED) is subscribed to those topics;
+- TrueNAS (Node-RED) receives the sensor readings and then displays them on gauges and text fields;
+- You can receive the readings in any other platform that supports MQTT and handle the readings as you want.
+
+*** Arduino IDE
+
+The ESP32 uses Arduino IDE, so make sure you have the ESP32 add-on installed. [[I]]
+
+*** Library dependencies
+
+The following libraries have to be installed in order to build the code and to
+satisfy the dependencies.
+
+**** Async MQTT Client Library
+
+To use MQTT with the ESP32 we’ll use the [[https://github.com/marvinroger/async-mqtt-client][Async MQTT Client Library]].
+
+*Installing the Async MQTT Client Library*
+
+1. Click here to download the Async MQTT client library. You should have a .zip folder in your /Downloads/ folder
+2. Unzip the .zip folder and you should get async-mqtt-client-master folder
+3. Rename your folder from async-mqtt-client-master to =async_mqtt_client=
+4. Move the =async_mqtt_client= folder to your Arduino IDE installation libraries folder
+5. Finally, re-open your Arduino IDE
+
+Alternatively, you can go to **Sketch > Include Library > Add . ZIP** library and select the library you’ve just downloaded.
+
+**** Async TCP Library
+
+To use MQTT with the ESP, you also need the [[https://github.com/me-no-dev/AsyncTCP][Async TCP library]].
+
+1. Click here to download the Async TCP client library. You should have a .zip folder in your /Downloads/ folder
+2. Unzip the .zip folder and you should get AsyncTCP-master folder
+3. Rename your folder from AsyncTCP-master to AsyncTCP
+4. Move the AsyncTCP folder to your Arduino IDE installation libraries folder
+5. Finally, re-open your Arduino IDE
+
+Alternatively, you can go to Sketch > Include Library > Add . ZIP library and select the library you’ve just downloaded.
+
+*Note:*
+
+Don't install the ESPAsyncTCP library, as requested by Async MQTT Client, as it is not compatible.
+
+**** BME680 Sensor Libraries
+
+To get readings from the BME680 sensor module, we’ll use the [[https://github.com/adafruit/Adafruit_BME680][Adafruit_BME680 library]].
+You also need to install the [[https://github.com/adafruit/Adafruit_Sensor][Adafruit_Sensor library]].
+Follow the next steps to install the libraries in your Arduino IDE:
+
+
+1. Open your Arduino IDE and go to *Sketch > Include Library > Manage Libraries*. The Library Manager should open.
+
+2. Search for *"adafruit bme680"* on the Search box and install the library.
+
+#+DOWNLOADED: file:///home/lzs/Pictures/library_bme680.png @ 2021-07-05 10:58:49
+#+CAPTION: BME680 Sensor Libraries
+[[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-05_10-58-49_library_bme680.png]]
+
+To use the BME680 library, you also need to install the Adafruit Unified Sensor. Follow the next steps to install the library in your Arduino IDE:
+
+3. Search for *"Adafruit Unified Sensor"* in the search box. Scroll all the way down to find the library and install it.
+
+#+DOWNLOADED: file:///home/lzs/Pictures/library_unified_sensor.png @ 2021-07-05 10:58:55
+#+CAPTION: Adafruit Unified Sensor Libraries
+[[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-05_10-58-55_library_unified_sensor.png]]
+
+After installing the libraries, restart your Arduino IDE.
+
+*** Library hacking
+
+Due to library compatibility issues with ESP32 vs. ESP8266, I applied the following changes to the library code:
+
+1. Comment the ESP.getChipId() call:
+
+#+DOWNLOADED: file:///home/lzs/Pictures/async_mqtt_ch1.png @ 2021-07-05 10:56:11
+#+CAPTION: AsyncMqttClient.cpp
+[[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-05_10-56-11_async_mqtt_ch1.png]]
+
+2. Include AsyncTCP.h instead of ESPAsyncTCP.h
+
+#+DOWNLOADED: file:///home/lzs/Pictures/async_mqtt_ch2.png @ 2021-07-05 10:57:51
+#+CAPTION: AsyncMqttClient.hpp
+[[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-05_10-57-51_async_mqtt_ch2.png]]
+
+*** Build and flash the ESP32
+
+
+#+DOWNLOADED: file:///home/lzs/Pictures/board_setup.png @ 2021-07-05 10:59:43
+[[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-05_10-59-42_board_setup.png]]
+
+
+
+#+DOWNLOADED: file:///home/lzs/Pictures/serial_console.png @ 2021-07-05 10:59:46
+[[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-05_10-59-46_serial_console.png]]
+
+
+
+*** MQTT Broker
+
+To use MQTT, you need a broker. We’ll be using Mosquitto broker installed on a TrueNAS.
+[[H]]
+
+
+
 
 
 
 ** References
 
-[[https://randomnerdtutorials.com/esp32-mqtt-publish-bme680-arduino/][ESP32 MQTT – Publish BME680 Temperature, Humidity, Pressure, and Gas Readings (Arduino IDE)]]
-
-
-[[https://www.balena.io/blog/build-an-environment-and-air-quality-monitor-with-raspberry-pi/][Build an air quality monitor with InfluxDB, Grafana, and Docker on a Raspberry Pi]]
-
-[[https://hackaday.com/2019/03/28/an-air-quality-monitor-that-leverages-the-cloud/][Hackaday: AN AIR QUALITY MONITOR THAT LEVERAGES THE CLOUD]]
-
-*** Parts:
-
-[[https://www.bastelgarage.ch/esp32minikit-wemos][Bastelgarage: ESP32MiniKit Wemos]]
-
-[[https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/][Bosch BME680]]
-
-[[https://www.bastelgarage.ch/bme680-breakout-luftfeuchtigkeits-druck-temperatur-luftgutesensor?search=bme680][Bastelgarage: BME680 Breakout Luftfeuchtigkeits-, Druck-, Temperatur- & Luftgütesensor]]
+1. <<A>> [[https://randomnerdtutorials.com/esp32-mqtt-publish-bme680-arduino/][ESP32 MQTT – Publish BME680 Temperature, Humidity, Pressure, and Gas Readings (Arduino IDE)]]
+2. <<B>> [[https://www.balena.io/blog/build-an-environment-and-air-quality-monitor-with-raspberry-pi/][Build an air quality monitor with InfluxDB, Grafana, and Docker on a Raspberry Pi]]
+3. <<C>> [[https://hackaday.com/2019/03/28/an-air-quality-monitor-that-leverages-the-cloud/][Hackaday: AN AIR QUALITY MONITOR THAT LEVERAGES THE CLOUD]]
+4. <<D>> [[https://www.bastelgarage.ch/esp32minikit-wemos][Bastelgarage: ESP32MiniKit Wemos]]
+5. <<E>> [[https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/][Bosch BME680]]
+6. <<F>> [[https://www.bastelgarage.ch/bme680-breakout-luftfeuchtigkeits-druck-temperatur-luftgutesensor?search=bme680][Bastelgarage: BME680 Breakout Luftfeuchtigkeits-, Druck-, Temperatur- & Luftgütesensor]]
+7. <<G>> [[https://randomnerdtutorials.com/what-is-mqtt-and-how-it-works/][What is MQTT and How It Works]]
+8. <<H>> [[https://www.truenas.com/plugins/][TrueNAS Plugins]]
+9. <<I>> [[https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/][Installing the ESP32 Board in Arduino IDE]]
+https://github.com/marvinroger/async-mqtt-client
+https://github.com/me-no-dev/AsyncTCP
