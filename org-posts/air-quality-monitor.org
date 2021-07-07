@@ -9,12 +9,14 @@
 
 ** Background
 
-Need of monitoring internal air quality, temperature and humidity. CO2
-measurement was an optional requirement, therefore I chose BME680
+The need of monitoring internal air quality, temperature and humidity was there
+for some time, so I've decided to implement it using state-of-the-art tools
+and environments out there.
+CO2 measurement was an optional requirement, therefore I chose BME680
 gas sensor, integrated with TrueNAS, as I have TrueNAS already running
 for some time at home.
 
-The Home Assistant [[J]] frontend and TrueNAS plugin seems a great option for
+The Home Assistant [[[J]]] frontend - exits as TrueNAS plugin - seems a great option for
 subscribing to the sensor data and visualizing it.
 
 #+DOWNLOADED: file:///home/lzs/personal/zwwerg.github.io/org-posts/assets/truenas_mqtt.png @ 2021-07-07 10:58:14
@@ -22,9 +24,9 @@ subscribing to the sensor data and visualizing it.
 [[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-07_10-58-14_truenas_mqtt.png]]
 
 The sensor is the BME680, gas sensor measuring relative humidity, barometric pressure,
-ambient temperature and gas (VOC). [[A]]
+ambient temperature and gas (VOC). [[[A]]]
 
-The microcontroller is an ESP32 [[D]] development board for simplicity.
+The microcontroller is an ESP32 [[[D]]] development board for simplicity.
 
 ** Schematics
 
@@ -39,7 +41,7 @@ Connect GND and 3V3 supply lines too.
 
 ** Software
 
-System interfacing based on MQTT [[G]].
+System interfacing based on MQTT [[[G]]].
 
 - The ESP32 requests sensor readings from the BME680 sensor.
 - The temperature readings are published in the esp/bme680/temperature topic;
@@ -52,7 +54,7 @@ System interfacing based on MQTT [[G]].
 
 *** Arduino IDE
 
-The ESP32 uses Arduino IDE, so make sure you have the ESP32 add-on installed. [[I]]
+The ESP32 uses Arduino IDE, so make sure you have the ESP32 add-on installed. [[[I]]]
 
 *** Library dependencies
 
