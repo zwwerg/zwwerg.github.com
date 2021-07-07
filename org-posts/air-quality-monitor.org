@@ -212,6 +212,11 @@ After performing a restart, the temperature reading can be accessed through the 
 [[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-07_11-11-47_ha_temperature_display.png]]
 
 
+*** Next steps
+
+I plan to design and print an enclosure for the sensor, and deploy many around the house.
+
+
 ** References
 
 1. <<A>> [[https://randomnerdtutorials.com/esp32-mqtt-publish-bme680-arduino/][ESP32 MQTT – Publish BME680 Temperature, Humidity, Pressure, and Gas Readings (Arduino IDE)]]
