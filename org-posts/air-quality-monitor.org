@@ -215,8 +215,11 @@ After performing a restart, the temperature reading can be accessed through the 
 
 
 *** Next steps
-
+**** TODO 3D printed enclosure
 I plan to design and print an enclosure for the sensor, and deploy many around the house.
+
+**** TODO Power saving
+Sleep mode with periodic wakeup. Plan is to have ~10s measurement period.
 
 
 ** References
