@@ -10,9 +10,16 @@
 ** Background
 
 Need of monitoring internal air quality, temperature and humidity. CO2
-measurement was an optional requirement, therefore
+measurement was an optional requirement, therefore I chose BME680
+gas sensor, integrated with TrueNAS, as I have TrueNAS already running
+for some time at home.
 
-** Hardware
+The Home Assistant [[J]] frontend and TrueNAS plugin seems a great option for
+subscribing to the sensor data and visualizing it.
+
+#+DOWNLOADED: file:///home/lzs/personal/zwwerg.github.io/org-posts/assets/truenas_mqtt.png @ 2021-07-07 10:58:14
+#+CAPTION: Air quality monitor architecture
+[[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-07_10-58-14_truenas_mqtt.png]]
 
 The sensor is the BME680, gas sensor measuring relative humidity, barometric pressure,
 ambient temperature and gas (VOC). [[A]]
@@ -25,17 +32,22 @@ Wire the BME680 to the ESP32 with the SDA pin connected to GPIO 21 and the SCL p
 Connect GND and 3V3 supply lines too.
 
 
+#+DOWNLOADED: file:///home/lzs/Pictures/esp32_hw.png @ 2021-07-07 11:41:29
+#+CAPTION: ESP32 hardware prototype
+[[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-07_11-41-29_esp32_hw.png]]
+
+
 ** Software
 
 System interfacing based on MQTT [[G]].
 
 - The ESP32 requests sensor readings from the BME680 sensor.
 - The temperature readings are published in the esp/bme680/temperature topic;
-- Humidity readings are published in the esp/bme680/humiditytopic;
+- Humidity readings are published in the esp/bme680/humidity topic;
 - Pressure readings are published in the esp/bme680/pressure topic;
 - Gas readings are published in the esp/bme680/gas topic;
-- TrueNAS (Node-RED) is subscribed to those topics;
-- TrueNAS (Node-RED) receives the sensor readings and then displays them on gauges and text fields;
+- TrueNAS (Home Assistant) is subscribed to those topics;
+- TrueNAS (Home Assistant) receives the sensor readings and then displays them on gauges and text fields;
 - You can receive the readings in any other platform that supports MQTT and handle the readings as you want.
 
 *** Arduino IDE
@@ -79,8 +91,8 @@ Don't install the ESPAsyncTCP library, as requested by Async MQTT Client, as it 
 
 **** BME680 Sensor Libraries
 
-To get readings from the BME680 sensor module, we’ll use the [[https://github.com/adafruit/Adafruit_BME680][Adafruit_BME680 library]].
-You also need to install the [[https://github.com/adafruit/Adafruit_Sensor][Adafruit_Sensor library]].
+To get readings from the BME680 sensor module, we’ll use the [[https://github.com/adafruit/Adafruit_BME680][Adafruit BME680 library]].
+You also need to install the [[https://github.com/adafruit/Adafruit_Sensor][Adafruit Sensor library]].
 Follow the next steps to install the libraries in your Arduino IDE:
 
 
@@ -106,13 +118,13 @@ After installing the libraries, restart your Arduino IDE.
 
 Due to library compatibility issues with ESP32 vs. ESP8266, I applied the following changes to the library code:
 
-1. Comment the ESP.getChipId() call:
+Comment the ESP.getChipId() call:
 
 #+DOWNLOADED: file:///home/lzs/Pictures/async_mqtt_ch1.png @ 2021-07-05 10:56:11
 #+CAPTION: AsyncMqttClient.cpp
 [[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-05_10-56-11_async_mqtt_ch1.png]]
 
-2. Include AsyncTCP.h instead of ESPAsyncTCP.h
+Include AsyncTCP.h instead of ESPAsyncTCP.h
 
 #+DOWNLOADED: file:///home/lzs/Pictures/async_mqtt_ch2.png @ 2021-07-05 10:57:51
 #+CAPTION: AsyncMqttClient.hpp
@@ -120,25 +132,82 @@ Due to library compatibility issues with ESP32 vs. ESP8266, I applied the follow
 
 *** Build and flash the ESP32
 
+The code for the ESP32 can be found here:
+https://github.com/zwwerg/air_quality_monitor
+
+For the board setup, my board config esd the following:
 
 #+DOWNLOADED: file:///home/lzs/Pictures/board_setup.png @ 2021-07-05 10:59:43
 [[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-05_10-59-42_board_setup.png]]
 
-
+First debug log, through the serial console, after flashing the ESP32:
 
 #+DOWNLOADED: file:///home/lzs/Pictures/serial_console.png @ 2021-07-05 10:59:46
 [[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-05_10-59-46_serial_console.png]]
 
+After a successful wifi connection:
 
+#+DOWNLOADED: file:///home/lzs/Pictures/esp32_mqtt_publish.png @ 2021-07-05 15:50:35
+[[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-05_15-50-35_esp32_mqtt_publish.png]]
 
 *** MQTT Broker
 
 To use MQTT, you need a broker. We’ll be using Mosquitto broker installed on a TrueNAS.
-[[H]]
+[[H]] The plugin installation is painless
 
 
+#+DOWNLOADED: file:///home/lzs/Pictures/truenas_mqtt_broker.png @ 2021-07-07 11:02:12
+#+CAPTION: TrueNAS MQTT broker plugin install
+[[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-07_11-02-12_truenas_mqtt_broker.png]]
 
 
+*** MQTT Subscriber - Home Assistant
+
+The ESP32 is publishing sensor readings every 10 seconds on four MQTT topics.
+Now, we can use any dashboard that supports MQTT or any other device that supports
+MQTT to subscribe to those topics and receive the readings.
+
+Installation of the Home Assistant is done through the TrueNAS plugin installation surface,
+it was painless after setting up the jail correctly.
+
+As an example, we’ll create a simple flow using Home Assistant to subscribe to
+those topics and display the readings on gauges. The Home Assistant dashboard
+can be accessed through the jail's IP address, and not through TrueNAS.
+
+The MQTT integration [[K]] has to be installed using the Home Assistant dashboard.
+(Home->Configuration->Integrations->+Add Integration)
+
+Configuration of the MQTT subscriber is not possible in the UI, however it is
+possible to subscribe to a topic, in order to see everything works fine
+with the sensor and the MQTT broker.
+
+#+DOWNLOADED: file:///home/lzs/Pictures/ha_mqtt_integration.png @ 2021-07-07 11:11:40
+#+CAPTION MQTT integration listen to a topic
+[[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-07_11-11-40_ha_mqtt_integration.png]]
+
+In order to subscribe and hook the sensor to a gauge, the =configuration.yaml=
+of the Home Assistant has to be edited. I have done this through SSH,
+accessing the file directly from the file system.
+
+#+begin_src yaml
+
+## LZS MQTT sensor test
+sensor 1:
+  - platform: mqtt
+    name: "Living room temperature #1"
+    state_topic: "esp/bme680/temperature"
+    unit_of_measurement: "°C"
+
+#+end_src
+
+Location of the configuration of the Home Assistant:
+
+=/mnt/pool0/iocage/jails/home-assistant/root/home/homeassistant/homeassistant/configuration.yaml=
+
+After performing a restart, the temperature reading can be accessed through the dashboard.
+
+#+DOWNLOADED: file:///home/lzs/Pictures/ha_temperature_display.png @ 2021-07-07 11:11:47
+[[file:assets/Air_quality_monitor_integrated_to_TrueNAS/2021-07-07_11-11-47_ha_temperature_display.png]]
 
 
 ** References
@@ -152,5 +221,7 @@ To use MQTT, you need a broker. We’ll be using Mosquitto broker installed on a
 7. <<G>> [[https://randomnerdtutorials.com/what-is-mqtt-and-how-it-works/][What is MQTT and How It Works]]
 8. <<H>> [[https://www.truenas.com/plugins/][TrueNAS Plugins]]
 9. <<I>> [[https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/][Installing the ESP32 Board in Arduino IDE]]
+10. <<J>> [[https://www.home-assistant.io/][Home Assistant]]
+11. <<K>> [[https://www.home-assistant.io/integrations/mqtt/][Home Assistant MQTT Integration]]
 https://github.com/marvinroger/async-mqtt-client
 https://github.com/me-no-dev/AsyncTCP
